@@ -546,6 +546,7 @@ public class DefaultChannelPipeline implements ChannelPipeline {
     }
 
     public void sendUpstream(ChannelEvent e) {
+        // this.head 可能不支持 upStream
         DefaultChannelHandlerContext head = getActualUpstreamContext(this.head);
         if (head == null) {
             if (logger.isWarnEnabled()) {
