@@ -147,7 +147,7 @@ public class NioWorker extends AbstractNioWorker {
                 if (server) {
                     channel.channel.configureBlocking(false);
                 }
-
+                //  注册
                 channel.channel.register(
                         selector, channel.getRawInterestOps(), channel);
 

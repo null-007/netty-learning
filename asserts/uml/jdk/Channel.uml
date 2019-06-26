@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.nio.channels.Channel</OriginalElement>
+  <nodes>
+    <node x="0.0" y="520.0">java.nio.channels.DatagramChannel</node>
+    <node x="645.8508771929826" y="520.0">java.nio.channels.SocketChannel</node>
+    <node x="300.36249999999995" y="270.0">java.nio.channels.ByteChannel</node>
+    <node x="665.5027412280702" y="190.0">java.nio.channels.spi.AbstractInterruptibleChannel</node>
+    <node x="672.8625" y="0.0">java.nio.channels.Channel</node>
+    <node x="273.86249999999995" y="350.0">java.nio.channels.SeekableByteChannel</node>
+    <node x="751.2527412280702" y="350.0">java.nio.channels.spi.AbstractSelectableChannel</node>
+    <node x="640.3508771929826" y="110.0">java.nio.channels.InterruptibleChannel</node>
+    <node x="76.86249999999995" y="350.0">java.nio.channels.ScatteringByteChannel</node>
+    <node x="160.73749999999995" y="190.0">java.nio.channels.ReadableByteChannel</node>
+    <node x="0.0" y="595.0">java.io.FileInputStream</node>
+    <node x="891.2384868421055" y="520.0">java.nio.channels.ServerSocketChannel</node>
+    <node x="775.2527412280702" y="270.0">java.nio.channels.SelectableChannel</node>
+    <node x="387.73749999999995" y="190.0">java.nio.channels.WritableByteChannel</node>
+    <node x="358.50932017543875" y="520.0">java.nio.channels.FileChannel</node>
+    <node x="465.86249999999995" y="350.0">java.nio.channels.GatheringByteChannel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.nio.channels.DatagramChannel" target="java.nio.channels.ByteChannel">
+      <point x="-30.399999999999977" y="-15.0" />
+      <point x="45.60000000000002" y="500.0" />
+      <point x="35.89999999999998" y="500.0" />
+      <point x="35.89999999999998" y="330.0" />
+      <point x="320.19583333333327" y="330.0" />
+      <point x="-39.666666666666686" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.WritableByteChannel" target="java.nio.channels.Channel">
+      <point x="0.0" y="-15.0" />
+      <point x="471.73749999999995" y="90.0" />
+      <point x="702.2375" y="90.0" />
+      <point x="-17.625" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.DatagramChannel" target="java.nio.channels.ScatteringByteChannel">
+      <point x="-1.4210854715202004E-14" y="-15.0" />
+      <point x="76.0" y="440.0" />
+      <point x="106.36249999999995" y="440.0" />
+      <point x="-59.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.InterruptibleChannel" target="java.nio.channels.Channel">
+      <point x="0.0" y="-15.0" />
+      <point x="723.3508771929826" y="90.0" />
+      <point x="713.9875" y="90.0" />
+      <point x="-5.875" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.SelectableChannel" target="java.nio.channels.spi.AbstractInterruptibleChannel">
+      <point x="-38.25" y="-15.0" />
+      <point x="813.5027412280702" y="245.0" />
+      <point x="826.0027412280702" y="245.0" />
+      <point x="53.5" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.SeekableByteChannel" target="java.nio.channels.ByteChannel">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.DatagramChannel" target="java.nio.channels.GatheringByteChannel">
+      <point x="30.39999999999999" y="-15.0" />
+      <point x="106.39999999999998" y="450.0" />
+      <point x="495.1958333333333" y="450.0" />
+      <point x="-58.66666666666666" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.FileChannel" target="java.nio.channels.SeekableByteChannel">
+      <point x="-14.125" y="-15.0" />
+      <point x="400.88432017543875" y="430.0" />
+      <point x="359.86249999999995" y="430.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.SelectableChannel" target="java.nio.channels.Channel">
+      <point x="38.25" y="-15.0" />
+      <point x="890.0027412280702" y="70.0" />
+      <point x="737.4875" y="70.0" />
+      <point x="17.625" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.SocketChannel" target="java.nio.channels.spi.AbstractSelectableChannel">
+      <point x="26.600000000000023" y="-15.0" />
+      <point x="738.9508771929825" y="490.0" />
+      <point x="851.7527412280702" y="490.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.FileChannel" target="java.nio.channels.ScatteringByteChannel">
+      <point x="-42.375" y="-15.0" />
+      <point x="372.63432017543875" y="440.0" />
+      <point x="165.36249999999995" y="440.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.ServerSocketChannel" target="java.nio.channels.Channel">
+      <point x="42.499999999999886" y="-15.0" />
+      <point x="1018.7384868421054" y="500.0" />
+      <point x="1003.7384868421054" y="500.0" />
+      <point x="1003.7384868421054" y="50.0" />
+      <point x="760.9875" y="50.0" />
+      <point x="41.125" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.DatagramChannel" target="java.nio.channels.spi.AbstractSelectableChannel">
+      <point x="60.80000000000001" y="-15.0" />
+      <point x="136.8" y="480.0" />
+      <point x="784.7527412280702" y="480.0" />
+      <point x="-67.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.SocketChannel" target="java.nio.channels.ScatteringByteChannel">
+      <point x="-53.200000000000045" y="-15.0" />
+      <point x="659.1508771929825" y="420.0" />
+      <point x="224.36249999999995" y="420.0" />
+      <point x="59.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.ByteChannel" target="java.nio.channels.WritableByteChannel">
+      <point x="29.75" y="-15.0" />
+      <point x="389.61249999999995" y="245.0" />
+      <point x="429.73749999999995" y="245.0" />
+      <point x="-42.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.ReadableByteChannel" target="java.nio.channels.Channel">
+      <point x="0.0" y="-15.0" />
+      <point x="247.73749999999995" y="80.0" />
+      <point x="690.4875" y="80.0" />
+      <point x="-29.375" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.SocketChannel" target="java.nio.channels.GatheringByteChannel">
+      <point x="-26.600000000000023" y="-15.0" />
+      <point x="685.7508771929824" y="410.0" />
+      <point x="612.5291666666667" y="410.0" />
+      <point x="58.66666666666666" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.GatheringByteChannel" target="java.nio.channels.WritableByteChannel">
+      <point x="0.0" y="-15.0" />
+      <point x="553.8625" y="330.0" />
+      <point x="606.5027412280702" y="330.0" />
+      <point x="606.5027412280702" y="245.0" />
+      <point x="513.7375" y="245.0" />
+      <point x="42.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.ScatteringByteChannel" target="java.nio.channels.ReadableByteChannel">
+      <point x="0.0" y="-15.0" />
+      <point x="165.36249999999995" y="320.0" />
+      <point x="84.30657894736851" y="320.0" />
+      <point x="84.30657894736851" y="245.0" />
+      <point x="204.23749999999995" y="245.0" />
+      <point x="-43.5" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.SocketChannel" target="java.nio.channels.ByteChannel">
+      <point x="0.0" y="-15.0" />
+      <point x="712.3508771929826" y="400.0" />
+      <point x="655.3625" y="400.0" />
+      <point x="655.3625" y="320.0" />
+      <point x="399.5291666666666" y="320.0" />
+      <point x="39.66666666666663" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.FileChannel" target="java.nio.channels.GatheringByteChannel">
+      <point x="14.125" y="-15.0" />
+      <point x="429.13432017543875" y="460.0" />
+      <point x="553.8625" y="460.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.spi.AbstractInterruptibleChannel" target="java.nio.channels.InterruptibleChannel">
+      <point x="-53.5" y="-15.0" />
+      <point x="719.0027412280702" y="165.0" />
+      <point x="723.3508771929826" y="165.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.ByteChannel" target="java.nio.channels.ReadableByteChannel">
+      <point x="-29.75" y="-15.0" />
+      <point x="330.11249999999995" y="245.0" />
+      <point x="291.23749999999995" y="245.0" />
+      <point x="43.5" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.spi.AbstractInterruptibleChannel" target="java.nio.channels.Channel">
+      <point x="53.5" y="-15.0" />
+      <point x="826.0027412280702" y="165.0" />
+      <point x="816.8508771929826" y="165.0" />
+      <point x="816.8508771929826" y="80.0" />
+      <point x="725.7375" y="80.0" />
+      <point x="5.875" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.SocketChannel" target="java.nio.channels.Channel">
+      <point x="53.200000000000045" y="-15.0" />
+      <point x="765.5508771929826" y="500.0" />
+      <point x="962.7527412280702" y="500.0" />
+      <point x="962.7527412280702" y="60.0" />
+      <point x="749.2375" y="60.0" />
+      <point x="29.375" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.DatagramChannel" target="java.nio.channels.Channel">
+      <point x="-60.799999999999955" y="-15.0" />
+      <point x="15.200000000000045" y="500.0" />
+      <point x="1.84671052631586" y="500.0" />
+      <point x="1.84671052631586" y="70.0" />
+      <point x="678.7375" y="70.0" />
+      <point x="-41.125" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.ServerSocketChannel" target="java.nio.channels.spi.AbstractSelectableChannel">
+      <point x="-42.500000000000114" y="-15.0" />
+      <point x="933.7384868421054" y="490.0" />
+      <point x="918.7527412280702" y="490.0" />
+      <point x="67.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.spi.AbstractSelectableChannel" target="java.nio.channels.SelectableChannel">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.nio.channels.FileChannel" target="java.nio.channels.spi.AbstractInterruptibleChannel">
+      <point x="42.375" y="-15.0" />
+      <point x="457.38432017543875" y="470.0" />
+      <point x="719.0027412280702" y="470.0" />
+      <point x="-53.5" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="620.0" y="232.5" />
+  <SelectedNodes>
+    <node>java.nio.channels.SelectableChannel</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -97,6 +97,7 @@ public final class NioServerBoss extends AbstractNioSelector implements Boss {
             try {
                 // accept connections in a for loop until no new connection is ready
                 for (;;) {
+                    // 实施 accept
                     SocketChannel acceptedSocket = channel.socket.accept();
                     if (acceptedSocket == null) {
                         break;

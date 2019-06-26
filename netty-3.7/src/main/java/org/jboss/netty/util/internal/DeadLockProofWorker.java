@@ -34,7 +34,7 @@ public final class DeadLockProofWorker {
         if (runnable == null) {
             throw new NullPointerException("runnable");
         }
-
+        // 在 executor中提交任务（abstractNioSelector）
         parent.execute(new Runnable() {
             public void run() {
                 PARENT.set(parent);

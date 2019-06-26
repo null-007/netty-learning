@@ -66,6 +66,7 @@ public abstract class AbstractNioWorkerPool<E extends AbstractNioWorker>
         initDone = true;
 
         for (int i = 0; i < workers.length; i++) {
+            // hq: worker 是线程吗
             workers[i] = newWorker(workerExecutor);
         }
     }

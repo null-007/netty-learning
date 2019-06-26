@@ -43,7 +43,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 abstract class AbstractNioSelector implements NioSelector {
 
     private static final AtomicInteger nextId = new AtomicInteger();
-
+    // 线程名 组成部分
     private final int id = nextId.incrementAndGet();
 
     /**
@@ -63,6 +63,8 @@ abstract class AbstractNioSelector implements NioSelector {
     /**
      * If this worker has been started thread will be a reference to the thread
      * used when starting. i.e. the current thread when the run method is executed.
+     *
+     * 一个 worker 就是一个 selector，在一个线程中进行 select。thread只是标记执行当前worker的是线程身份
      */
     protected volatile Thread thread;
 
@@ -78,9 +80,9 @@ abstract class AbstractNioSelector implements NioSelector {
      * waken up.
      */
     protected final AtomicBoolean wakenUp = new AtomicBoolean();
-
+    // 任务队列，我觉得这些任务不会在新线程中执行，极有可能是直接通过 task.run()同步执行
     private final Queue<Runnable> taskQueue = new ConcurrentLinkedQueue<Runnable>();
-
+    // 感觉没有明确的意义，可能只是用于性能优化吧
     private volatile int cancelledKeys; // should use AtomicInteger but we just need approximation
 
     private final CountDownLatch shutdownLatch = new CountDownLatch(1);
@@ -96,10 +98,11 @@ abstract class AbstractNioSelector implements NioSelector {
     }
 
     public void register(Channel channel, ChannelFuture future) {
+        // task 是 RegisterTask
         Runnable task = createRegisterTask(channel, future);
         registerTask(task);
     }
-
+    // selector 和 task 之间有什么关系？
     protected final void registerTask(Runnable task) {
         taskQueue.add(task);
 
@@ -198,12 +201,13 @@ abstract class AbstractNioSelector implements NioSelector {
         // use 80% of the timeout for measure
         final long minSelectTimeout = SelectorUtil.SELECT_TIMEOUT_NANOS * 80 / 100;
         boolean wakenupFromLoop = false;
+        // 无线循环
         for (;;) {
             wakenUp.set(false);
 
             try {
                 long beforeSelect = System.nanoTime();
-                int selected = select(selector);
+                int selected = select(selector); // 进行 select()
                 if (SelectorUtil.EPOLL_BUG_WORKAROUND && selected == 0 && !wakenupFromLoop && !wakenUp.get()) {
                     long timeBlocked = System.nanoTime() - beforeSelect;
 
@@ -287,6 +291,7 @@ abstract class AbstractNioSelector implements NioSelector {
                 }
 
                 cancelledKeys = 0;
+                // 注册任务
                 processTaskQueue();
                 selector = this.selector; // processTaskQueue() can call rebuildSelector()
 
@@ -294,6 +299,8 @@ abstract class AbstractNioSelector implements NioSelector {
                     this.selector = null;
 
                     // process one time again
+                    // 为什么要 again？
+                    // 可能是让它再去注册一下，返回 future 注册失败；这个失败结果也太不明确了吧
                     processTaskQueue();
 
                     for (SelectionKey k: selector.keys()) {
@@ -340,6 +347,8 @@ abstract class AbstractNioSelector implements NioSelector {
         // Start the worker thread with the new Selector.
         boolean success = false;
         try {
+            // newThreadRenamingRunnable 的目的是把自己包装成一个执行时线程名字替换的任务。这里的自己是 abstractNioSelector
+            // 替换名字就是在实行任务是替换成名字为“io线程”，执行完之后替换成原线程名；好无聊啊
             DeadLockProofWorker.start(executor, newThreadRenamingRunnable(id, determiner));
             success = true;
         } finally {

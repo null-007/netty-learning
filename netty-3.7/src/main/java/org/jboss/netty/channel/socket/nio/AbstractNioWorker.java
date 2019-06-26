@@ -40,11 +40,13 @@ import java.util.concurrent.Executor;
 
 
 import static org.jboss.netty.channel.Channels.*;
-
+// 一个 worker 其实是一个任务(Runnable)，该任务包含一个 selector
+// 尝试其分析 AbstractNioSelector.run()，很复杂
 abstract class AbstractNioWorker extends AbstractNioSelector implements Worker {
 
     protected final SocketSendBufferPool sendBufferPool = new SocketSendBufferPool();
 
+    // 这里的 Executor 里是多个线程， 是 workPool 的线程池
     AbstractNioWorker(Executor executor) {
         super(executor);
     }
@@ -91,6 +93,7 @@ abstract class AbstractNioWorker extends AbstractNioSelector implements Worker {
         sendBufferPool.releaseExternalResources();
     }
 
+    // run的主体,处理 selected-Key set
     @Override
     protected void process(Selector selector) throws IOException {
         Set<SelectionKey> selectedKeys = selector.selectedKeys();
